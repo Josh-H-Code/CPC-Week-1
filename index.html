@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sizzling Skillet Rigatoni: Blistered Tomatoes, Vegan Feta & Golden Garlic | Cafe Kino Bristol</title>
+    
+    <!-- Cafe Kino Fonts: Chelsea Market (Headings) & Heebo (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- CAFE KINO TOP STRIP -->
+    <div class="kino-top-strip">
+        <div class="kino-top-strip-inner">
+            <div class="kino-badge-item">
+                <span>📍 108 Stokes Croft, Bristol BS1 3RU</span>
+                <span class="bullet">&bull;</span>
+                <span class="kino-hours">Open 9am – 9pm, 7 Days a Week</span>
+            </div>
+            <div class="kino-badge-item">
+                <span>🌱 100% Vegan</span>
+                <span class="bullet">&bull;</span>
+                <span>🤝 Workers' Co-operative</span>
+                <span class="bullet">&bull;</span>
+                <span>☕ Triple Co Fairtrade Coffee</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CAFE KINO BRAND HEADER & MASTHEAD -->
+    <header class="kino-header">
+        <div class="kino-header-inner">
+            <div class="kino-logo-wrapper">
+                <a href="#" class="kino-brand-title">Cafe Kino</a>
+                <p class="kino-tagline">
+                    A vegan co-operative cafe in Stokes Croft, Bristol owned and run by its workers.
+                </p>
+            </div>
+            <nav class="kino-nav">
+                <a href="#">Home</a>
+                <a href="#">Menu</a>
+                <a href="#" class="active">Kitchen Specials</a>
+                <a href="#">About Us</a>
+                <a href="#">Basement Hire</a>
+                <a href="#">Events</a>
+                <a href="#">Safer Spaces</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- RECIPE ARTICLE HEADER -->
+    <section class="recipe-header-section">
+        <div class="recipe-header-inner">
+            <div class="kicker-pill">
+                <span>🌱 Stokes Croft Kitchen Specials</span>
+                <span>&bull;</span>
+                <span>100% Plant-Based One-Pan Feast</span>
+            </div>
+
+            <h1 class="recipe-title">
+                Sizzling Skillet Rigatoni with Blistered Vine Tomatoes, Melted Artisan Vegan Feta & Golden Garlic
+            </h1>
+
+            <p class="recipe-lead">
+                Crafted in our Bristol kitchen: a vibrant, comforting one-pan celebration where fresh seasonal produce leaps from the smoking cast-iron skillet onto your prep counter.
+            </p>
+
+            <div class="recipe-meta-row">
+                <div class="collective-byline">
+                    <div class="collective-avatar">CK</div>
+                    <div class="byline-text">
+                        <span class="byline-author">Cafe Kino Kitchen Collective</span>
+                        <span class="byline-sub">108 Stokes Croft, Bristol &bull; 100% Vegan Recipe</span>
+                    </div>
+                </div>
+
+                <div class="recipe-actions">
+                    <button class="kino-action-btn" id="btn-save-recipe">
+                        <span>🔖</span>
+                        <span class="save-label">Save Recipe</span>
+                    </button>
+                    <button class="kino-action-btn" onclick="navigator.clipboard?.writeText(window.location.href); alert('Recipe link copied to clipboard!');">
+                        <span>🔗</span>
+                        <span>Share</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recipe Stat Tiles -->
+            <div class="recipe-stats-grid">
+                <div class="stat-tile">
+                    <span class="label">Prep Time</span>
+                    <span class="value">10 mins</span>
+                </div>
+                <div class="stat-tile">
+                    <span class="label">Cook Time</span>
+                    <span class="value">15 mins</span>
+                </div>
+                <div class="stat-tile">
+                    <span class="label">Servings</span>
+                    <span class="value">4 hungry friends</span>
+                </div>
+                <div class="stat-tile">
+                    <span class="label">Skillet Heat</span>
+                    <span class="value" id="pan-temp-value">210°C Sizzling</span>
+                </div>
+                <div class="stat-tile">
+                    <span class="label">Ethos</span>
+                    <span class="value" style="color: var(--kino-green-mid);">100% Vegan</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D INTERACTIVE HERO STAGE (CAFE KINO KITCHEN COUNTERTOP) -->
+    <section class="pan-showcase-section" id="pan-showcase">
+        <div class="pan-stage-header">
+            <div class="kino-stage-pill">
+                <span class="burner-dot"></span>
+                <span>INTERACTIVE KITCHEN SKILLET &bull; THREE.JS & GSAP</span>
+            </div>
+            <div class="stage-controls-right">
+                <button class="audio-toggle-btn" id="btn-audio-toggle" title="Toggle kitchen sizzle sound">
+                    <span class="audio-icon">🔊</span>
+                    <span class="audio-label">Sizzle: Sizzling</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 3D WebGL Canvas Container -->
+        <div class="three-canvas-container" id="three-canvas-container">
+            <div class="canvas-hint-overlay">
+                <span>🍳</span>
+                <span>Move cursor to swirl skillet &bull; Click any ingredient to launch &bull; Or hit Toss Skillet below</span>
+            </div>
+            <!-- Floating HUD Alert Message -->
+            <div class="pan-hud-alert" id="pan-hud-alert">
+                🍳 TOSSING INGREDIENTS FROM SKILLET ONTO COUNTER...
+            </div>
+        </div>
+
+        <!-- Master Action Deck -->
+        <div class="pan-control-deck">
+            <div class="main-action-buttons">
+                <button class="chef-toss-btn" id="btn-toss-all">
+                    <span>🍳 Toss Skillet (Throw to Counter)</span>
+                </button>
+                <button class="reset-pan-btn disabled" id="btn-reset-all">
+                    <span>↩ Return All to Skillet</span>
+                </button>
+            </div>
+
+            <!-- Single Ingredient Quick Toss Pills -->
+            <div class="single-toss-pills">
+                <span class="pills-label">Quick Flick:</span>
+                <button class="toss-single-btn" data-id="tomatoes" data-name="Tomatoes">🍅 Vine Tomatoes</button>
+                <button class="toss-single-btn" data-id="feta" data-name="Vegan Feta">🧀 Vegan Feta</button>
+                <button class="toss-single-btn" data-id="basil" data-name="Basil">🌿 Basil</button>
+                <button class="toss-single-btn" data-id="garlic" data-name="Garlic">🧄 Garlic</button>
+                <button class="toss-single-btn" data-id="pasta" data-name="Rigatoni">🍝 Rigatoni</button>
+                <button class="toss-single-btn" data-id="chili" data-name="Chili">🌶️ Chili & Salt</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE TOSSED INGREDIENTS SECTION (CAFE KINO PREP COUNTER) -->
+    <section class="prep-board-section" id="prep-board-section">
+        <div class="prep-board-inner">
+            <div class="section-editorial-header">
+                <div>
+                    <h2 class="section-editorial-title">The Tossed Ingredients: Fresh on the Counter</h2>
+                    <p class="section-editorial-sub">Each ingredient thrown from the skillet lands with local sourcing details and co-op kitchen tips.</p>
+                </div>
+                <div class="board-action-prompt">
+                    <span>⚡ Watch them land dynamically when tossed from above</span>
+                </div>
+            </div>
+
+            <!-- Ingredients Grid -->
+            <div class="ingredients-grid">
+                <!-- 01: Vine Tomatoes -->
+                <div class="editorial-ingredient-card" id="card-tomatoes">
+                    <div>
+                        <div class="card-top-row">
+                            <span class="card-index">01</span>
+                            <span class="status-pill in-pan" id="status-tomatoes">🔥 Sizzling in Skillet</span>
+                        </div>
+                        <span class="card-tag">Sweet & Bursting &bull; Somerset Soil</span>
+                        <h3 class="card-title">Somerset Organic Vine Cherry Tomatoes</h3>
+                        <div class="card-amount">400g local on-the-vine</div>
+                        <p class="card-desc">
+                            Organic cherry tomatoes from local Somerset growers. When blistered in screaming-hot extra virgin olive oil, their skins burst into an instant sweet pan sauce.
+                        </p>
+                        <div class="chef-tip-box">
+                            <strong>Kino Kitchen Tip:</strong>
+                            Keep the green calyx caps attached! They release a fresh, peppery greenhouse perfume into the hot olive oil.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <label class="prep-checkbox-label">
+                            <input type="checkbox" class="ingredient-checkbox">
+                            <span>Prepped & Weighed</span>
+                        </label>
+                        <button class="card-toss-btn toss-single-btn" data-id="tomatoes" data-name="Tomatoes">
+                            Toss Tomato
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 02: Cultured Vegan Feta -->
+                <div class="editorial-ingredient-card" id="card-feta">
+                    <div>
+                        <div class="card-top-row">
+                            <span class="card-index">02</span>
+                            <span class="status-pill in-pan" id="status-feta">🔥 Sizzling in Skillet</span>
+                        </div>
+                        <span class="card-tag">Tangy & Creamy &bull; 100% Vegan</span>
+                        <h3 class="card-title">Cultured Artisan Vegan Feta Blocks</h3>
+                        <div class="card-amount">200g almond-milk cultured block</div>
+                        <p class="card-desc">
+                            Our kitchen’s favourite cultured plant-based feta with Greek oregano and lemon brine. Sizzled directly against the cast-iron base until deeply caramelized on one side.
+                        </p>
+                        <div class="chef-tip-box">
+                            <strong>Kino Kitchen Tip:</strong>
+                            Keep chunky golden nuggets that melt into velvety cream when emulsified with starchy pasta water.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <label class="prep-checkbox-label">
+                            <input type="checkbox" class="ingredient-checkbox">
+                            <span>Prepped & Weighed</span>
+                        </label>
+                        <button class="card-toss-btn toss-single-btn" data-id="feta" data-name="Vegan Feta">
+                            Toss Feta
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 03: Sweet Basil -->
+                <div class="editorial-ingredient-card" id="card-basil">
+                    <div>
+                        <div class="card-top-row">
+                            <span class="card-index">03</span>
+                            <span class="status-pill in-pan" id="status-basil">🔥 Sizzling in Skillet</span>
+                        </div>
+                        <span class="card-tag">Fragrant & Herbal &bull; Fresh Picked</span>
+                        <h3 class="card-title">Fresh Sweet Genovese Basil Leaves</h3>
+                        <div class="card-amount">1 generous bunch, hand-picked</div>
+                        <p class="card-desc">
+                            Tender, aromatic broad basil leaves. Folded in right at the tossing climax so the residual skillet heat gently wilts them into glossy emerald ribbons.
+                        </p>
+                        <div class="chef-tip-box">
+                            <strong>Kino Kitchen Tip:</strong>
+                            Tear gently with warm fingertips rather than slicing with steel; crushing by hand prevents bruising the delicate aniseed essential oils.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <label class="prep-checkbox-label">
+                            <input type="checkbox" class="ingredient-checkbox">
+                            <span>Prepped & Weighed</span>
+                        </label>
+                        <button class="card-toss-btn toss-single-btn" data-id="basil" data-name="Basil">
+                            Toss Basil
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 04: Golden Garlic -->
+                <div class="editorial-ingredient-card" id="card-garlic">
+                    <div>
+                        <div class="card-top-row">
+                            <span class="card-index">04</span>
+                            <span class="status-pill in-pan" id="status-garlic">🔥 Sizzling in Skillet</span>
+                        </div>
+                        <span class="card-tag">Nutty & Caramelized</span>
+                        <h3 class="card-title">Crispy Sautéed Garlic Slivers</h3>
+                        <div class="card-amount">4 fat cloves, paper-thin sliced</div>
+                        <p class="card-desc">
+                            Translucent garlic slivers that dance in simmering extra virgin olive oil until pale straw-golden and crisp, infusing every droplet of fat with sweet allium depth.
+                        </p>
+                        <div class="chef-tip-box">
+                            <strong>Kino Kitchen Tip:</strong>
+                            Watch like a hawk: garlic travels from aromatic gold to acrid bitter charcoal in seconds. Always keep your skillet moving.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <label class="prep-checkbox-label">
+                            <input type="checkbox" class="ingredient-checkbox">
+                            <span>Prepped & Weighed</span>
+                        </label>
+                        <button class="card-toss-btn toss-single-btn" data-id="garlic" data-name="Garlic">
+                            Toss Garlic
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 05: Rigatoni Pasta -->
+                <div class="editorial-ingredient-card" id="card-pasta">
+                    <div>
+                        <div class="card-top-row">
+                            <span class="card-index">05</span>
+                            <span class="status-pill in-pan" id="status-pasta">🔥 Sizzling in Skillet</span>
+                        </div>
+                        <span class="card-tag">Al Dente & Coarse &bull; Bronze Die</span>
+                        <h3 class="card-title">Bronze-Die Ribbed Durum Rigatoni</h3>
+                        <div class="card-amount">350g artisan durum wheat</div>
+                        <p class="card-desc">
+                            Coarse-surfaced durum wheat pasta tubes with wide ridges designed specifically to cup bubbling tomato juices and molten vegan feta inside the tube.
+                        </p>
+                        <div class="chef-tip-box">
+                            <strong>Kino Kitchen Tip:</strong>
+                            Boil 2 minutes shy of packet time in salted water; finish cooking directly in the sizzling skillet with a splash of starchy water.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <label class="prep-checkbox-label">
+                            <input type="checkbox" class="ingredient-checkbox">
+                            <span>Prepped & Weighed</span>
+                        </label>
+                        <button class="card-toss-btn toss-single-btn" data-id="pasta" data-name="Rigatoni">
+                            Toss Rigatoni
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 06: Chili & Sea Salt -->
+                <div class="editorial-ingredient-card" id="card-chili">
+                    <div>
+                        <div class="card-top-row">
+                            <span class="card-index">06</span>
+                            <span class="status-pill in-pan" id="status-chili">🔥 Sizzling in Skillet</span>
+                        </div>
+                        <span class="card-tag">Fiery & Mineral &bull; Cornish Salt</span>
+                        <h3 class="card-title">Calabrian Chili Flakes & Cornish Sea Salt</h3>
+                        <div class="card-amount">1 tsp flakes + mineral sea salt</div>
+                        <p class="card-desc">
+                            Crushed dried pepper flakes giving warming citrus-tinged heat, paired with pyramid crystals of Cornish sea salt for crisp textural punch.
+                        </p>
+                        <div class="chef-tip-box">
+                            <strong>Kino Kitchen Tip:</strong>
+                            A pinch of fiery heat cuts right through the creamy richness of the cultured vegan feta, creating perfect culinary balance.
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <label class="prep-checkbox-label">
+                            <input type="checkbox" class="ingredient-checkbox">
+                            <span>Prepped & Weighed</span>
+                        </label>
+                        <button class="card-toss-btn toss-single-btn" data-id="chili" data-name="Chili">
+                            Toss Chili
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAFE KINO RECIPE STORY & STEP-BY-STEP METHOD -->
+    <section class="editorial-content-section">
+        <div class="editorial-layout-grid">
+            <!-- Left Main Column -->
+            <div class="article-main-column">
+                <p class="lead-paragraph">
+                    Cooking together is at the very heart of Cafe Kino. Operating as a non-profit workers' co-operative in Stokes Croft since 2010, our kitchen believes in delicious, vibrant, accessible plant-based food made from scratch with care.
+                </p>
+
+                <p class="editorial-paragraph">
+                    This sizzling one-pan rigatoni celebrates the theatrical beauty of the cast-iron skillet. By searing sweet Somerset vine tomatoes directly alongside artisanal cultured vegan feta, you create a luscious, dairy-free sauce in minutes. That decisive flick of the skillet emulsifies the starches into creamy velvet without a single drop of dairy.
+                </p>
+
+                <blockquote class="editorial-pullquote">
+                    <p>“Toss with confidence — that swift flick of the skillet emulsifies sweet tomato nectar, olive oil and starchy pasta water into luscious silk without a drop of dairy.”</p>
+                    <cite>— Cafe Kino Kitchen Collective, 108 Stokes Croft</cite>
+                </blockquote>
+
+                <p class="editorial-paragraph">
+                    Cooking in a single cast-iron skillet also honours our low-waste, energy-conscious ethos: maximum flavor and crispy edges with minimal washing up.
+                </p>
+
+                <h3 class="method-section-title">The Step-by-Step Cooking Method</h3>
+
+                <div class="method-steps-list">
+                    <!-- Step 1 -->
+                    <div class="method-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Salt the water & drop the rigatoni</h4>
+                            <p>
+                                Bring a large pot of generously salted water to a rolling boil. Drop in the bronze-die rigatoni and boil for 9 minutes — 2 minutes shy of al dente. Reserve a mugful of that liquid gold (the starchy pasta water) before draining.
+                            </p>
+                            <div class="step-timer-wrapper">
+                                <button class="step-timer-btn" id="btn-step-timer">
+                                    ⏱️ Start 2-min Pasta Timer
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="method-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Warm the skillet with garlic & chili</h4>
+                            <p>
+                                Place your cast-iron skillet over medium heat. Pour in four tablespoons of good extra virgin olive oil. Add the sliced garlic and dried chili flakes. Swirl gently for 45 seconds until the garlic turns pale straw-golden and fills the kitchen with nutty aroma.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="method-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Blister the tomatoes & sear the vegan feta</h4>
+                            <p>
+                                Tumble in the whole vine cherry tomatoes and rustic chunks of cultured vegan feta. Let them sit undisturbed for 2 minutes to get that glorious golden crust on the base. Gently squash half the tomatoes with a wooden spoon so they burst in fragrant steam.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="method-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>The Great Skillet Toss</h4>
+                            <p>
+                                Tip the drained, steaming rigatoni directly into the skillet with a generous splash of reserved pasta water. Now comes the flick: lift the skillet, tilt forward, and flick upward with confidence to toss the ingredients through the sauce until every ridge is cloaked in emulsion.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="method-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Scatter fresh basil & gather round</h4>
+                            <p>
+                                Take the skillet off the heat. Scatter over the hand-torn sweet basil leaves, a final drizzle of raw peppery olive oil, and flaky Cornish sea salt. Serve straight from the sizzling skillet in the middle of the table with crusty local sourdough.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar Column -->
+            <aside class="article-sidebar">
+                <!-- Kino Co-op Philosophy -->
+                <div class="sidebar-card highlight">
+                    <h3 class="sidebar-title">The Kino Co-op Philosophy</h3>
+                    <ul class="golden-rules-list">
+                        <li>
+                            <span class="rule-bullet">&bull;</span>
+                            <div><strong>Workers' Co-operative:</strong> Flat management structure where every member has an equal voice and equal pay.</div>
+                        </li>
+                        <li>
+                            <span class="rule-bullet">&bull;</span>
+                            <div><strong>100% Vegan & Ethical:</strong> Everything we serve is plant-based, supporting sustainable agriculture and animal welfare.</div>
+                        </li>
+                        <li>
+                            <span class="rule-bullet">&bull;</span>
+                            <div><strong>Community First:</strong> Non-profit focus where all revenue is reinvested in our cafe, staff, and community space.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Local Bristol Suppliers -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">Our Bristol Suppliers</h3>
+                    <div class="sidebar-info-box">
+                        <p style="margin-bottom: 8px;"><strong>Coffee:</strong> Triple Co Roast (local, ethical Bristol roasters).</p>
+                        <p style="margin-bottom: 8px;"><strong>Teas:</strong> Chash Tea (loose-leaf ethical blends).</p>
+                        <p style="margin-bottom: 8px;"><strong>Produce:</strong> Organic, seasonal vegetables from Somerset and local farms.</p>
+                        <p><strong>Beer & Cider:</strong> Independent local breweries across Bristol & the South West.</p>
+                    </div>
+                </div>
+
+                <!-- Downstairs at Kino -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">Downstairs at Kino</h3>
+                    <div class="sidebar-info-box">
+                        <p style="margin-bottom: 10px;">
+                            Our basement is an affordable community space for hire: gigs, life drawing, film screenings, meetings, and rehearsals.
+                        </p>
+                        <p style="font-size: 13px; font-weight: 700; color: var(--kino-green-dark);">
+                            Get in touch: <a href="mailto:events@cafekino.coop" style="color: var(--kino-terracotta);">events@cafekino.coop</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Safer Spaces Policy Box -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">Safer Spaces</h3>
+                    <p style="font-size: 13px; color: #555; line-height: 1.55;">
+                        Cafe Kino strives to be a welcoming and inclusive space for all. We do not tolerate discrimination, harassment, or prejudice of any kind.
+                    </p>
+                </div>
+
+                <!-- Newsletter / Community Email Box -->
+                <div class="newsletter-box">
+                    <h3>Join the Kino Community</h3>
+                    <p>Sign up to our monthly newsletter for upcoming basement gigs, seasonal menu launches, and community notices.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for joining the Cafe Kino community!');">
+                        <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-submit">Subscribe</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- CAFE KINO BRISTOL FOOTER -->
+    <footer class="kino-footer">
+        <div class="footer-inner">
+            <div class="footer-top-row">
+                <a href="#" class="footer-brand">Cafe Kino</a>
+                <a href="#" class="footer-back-to-top">
+                    <span>Back to top</span>
+                    <span>↑</span>
+                </a>
+            </div>
+
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h5>Visit Us</h5>
+                    <p>108 Stokes Croft<br>Bristol, BS1 3RU<br>United Kingdom</p>
+                    <p style="margin-top: 8px;">Open 9:00am – 9:00pm<br>Every day of the week</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Explore</h5>
+                    <ul>
+                        <li><a href="#">Our Food Menu</a></li>
+                        <li><a href="#">Breakfast & Brunch</a></li>
+                        <li><a href="#">Kino Classic Burgers</a></li>
+                        <li><a href="#">Cakes & Bakery</a></li>
+                        <li><a href="#">Drinks & Craft Beers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Community & Co-op</h5>
+                    <ul>
+                        <li><a href="#">About the Workers' Co-op</a></li>
+                        <li><a href="#">Basement Space Hire</a></li>
+                        <li><a href="#">Upcoming Events</a></li>
+                        <li><a href="#">Safer Spaces Policy</a></li>
+                        <li><a href="#">Work With Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="mailto:contact@cafekino.coop">contact@cafekino.coop</a></li>
+                        <li><a href="mailto:events@cafekino.coop">events@cafekino.coop</a></li>
+                        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                Cafe Kino is a registered Workers' Co-operative Society Limited &bull; 108 Stokes Croft, Bristol &bull; 100% Vegan & Non-Profit Community Space.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js & GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom App Modules -->
+    <script src="js/audio.js"></script>
+    <script src="js/ingredients.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/tossAnimation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

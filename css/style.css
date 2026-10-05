@@ -1,0 +1,1240 @@
+/* ==========================================================================
+   CAFE KINO (STOKES CROFT, BRISTOL) — ETHICAL VEGAN CO-OP RECIPE EXPERIENCE
+   Aesthetic: Chelsea Market display font, Heebo body, earthy forest greens,
+   warm terracotta, unbleached craft paper, airy whitewashed cafe ambiance.
+   ========================================================================== */
+
+:root {
+    /* Cafe Kino Brand Colors */
+    --kino-green-dark: #1b4332;
+    --kino-green: #2d5a43;
+    --kino-green-mid: #407b5a;
+    --kino-green-light: #eaf3ed;
+    --kino-green-pale: #f2f7f4;
+    
+    --kino-terracotta: #c85a32;
+    --kino-terracotta-light: #fbeee8;
+    --kino-mustard: #d4973b;
+    --kino-mustard-light: #fdf6ea;
+    
+    --kino-cream: #faf8f5;
+    --kino-paper: #f5f1eb;
+    --kino-card: #ffffff;
+    --kino-sand: #eee9df;
+    
+    --kino-charcoal: #25282a;
+    --kino-text: #2f3336;
+    --kino-muted: #6e7478;
+    --kino-border: #ded8cb;
+    --kino-border-dark: #c5beb1;
+
+    /* Fonts matching cafekino.coop */
+    --font-display: 'Chelsea Market', cursive, sans-serif;
+    --font-sans: 'Heebo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--kino-cream);
+    color: var(--kino-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   CAFE KINO COMMUNITY TOP BAR & ANNOUNCEMENT STRIP
+   ========================================================================== */
+
+.kino-top-strip {
+    background-color: var(--kino-green-dark);
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    font-weight: 500;
+    padding: 9px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--kino-green-mid);
+}
+
+.kino-top-strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.kino-badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.kino-badge-item .bullet {
+    color: var(--kino-mustard);
+}
+
+.kino-hours {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   CAFE KINO HEADER & BOHEMIAN BRAND MASTHEAD
+   ========================================================================== */
+
+.kino-header {
+    background-color: #ffffff;
+    border-bottom: 2px solid var(--kino-border);
+    padding: 28px 20px 20px;
+}
+
+.kino-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+}
+
+.kino-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.kino-brand-title {
+    font-family: var(--font-display);
+    font-size: 52px;
+    line-height: 1.05;
+    color: var(--kino-green-dark);
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+.kino-brand-title:hover {
+    color: var(--kino-terracotta);
+}
+
+.kino-tagline {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--kino-muted);
+    font-weight: 400;
+    max-width: 600px;
+}
+
+.kino-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-top: 8px;
+    border-top: 1px solid var(--kino-border);
+    padding-top: 14px;
+    width: 100%;
+}
+
+.kino-nav a {
+    color: var(--kino-charcoal);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: all 0.15s ease;
+    letter-spacing: 0.2px;
+}
+
+.kino-nav a:hover {
+    background-color: var(--kino-green-light);
+    color: var(--kino-green-dark);
+}
+
+.kino-nav a.active {
+    background-color: var(--kino-green);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   RECIPE HEADER & STOKES CROFT KITCHEN INTRO
+   ========================================================================== */
+
+.recipe-header-section {
+    background-color: var(--kino-paper);
+    padding: 44px 20px 36px;
+    border-bottom: 2px dashed var(--kino-border-dark);
+}
+
+.recipe-header-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.kicker-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--kino-green-light);
+    color: var(--kino-green-dark);
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(45, 90, 67, 0.2);
+}
+
+.recipe-title {
+    font-family: var(--font-display);
+    font-size: 44px;
+    line-height: 1.15;
+    color: var(--kino-green-dark);
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+}
+
+.recipe-lead {
+    font-size: 20px;
+    line-height: 1.55;
+    color: #3e4448;
+    max-width: 880px;
+    margin-bottom: 26px;
+    font-weight: 400;
+}
+
+.recipe-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-top: 20px;
+    border-top: 1px solid var(--kino-border);
+}
+
+.collective-byline {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.collective-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--kino-green);
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.byline-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.byline-author {
+    font-weight: 700;
+    color: var(--kino-green-dark);
+    font-size: 16px;
+}
+
+.byline-sub {
+    font-size: 13px;
+    color: var(--kino-muted);
+}
+
+.recipe-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.kino-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffffff;
+    color: var(--kino-green-dark);
+    border: 1px solid var(--kino-border-dark);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.kino-action-btn:hover {
+    background: var(--kino-green-light);
+    border-color: var(--kino-green);
+}
+
+.kino-action-btn.saved {
+    background: var(--kino-green);
+    color: #ffffff;
+    border-color: var(--kino-green);
+}
+
+/* Quick Recipe Stat Tiles (Cafe Board Style) */
+.recipe-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.stat-tile {
+    background: #ffffff;
+    border: 1px solid var(--kino-border);
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-tile .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+    color: var(--kino-muted);
+}
+
+.stat-tile .value {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--kino-green-dark);
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   3D HERO STAGE (CAFE KINO KITCHEN COUNTERTOP)
+   ========================================================================== */
+
+.pan-showcase-section {
+    position: relative;
+    /* Warm, sunlit cafe kitchen countertop aesthetic */
+    background: radial-gradient(circle at 50% 40%, #ffffff 0%, #f6f2ea 60%, #ebe4d5 100%);
+    color: var(--kino-charcoal);
+    padding: 30px 20px 40px;
+    border-bottom: 2px solid var(--kino-border);
+}
+
+.pan-stage-header {
+    max-width: 1040px;
+    margin: 0 auto 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.kino-stage-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid var(--kino-border);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--kino-green-dark);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.kino-stage-pill .burner-dot {
+    width: 9px;
+    height: 9px;
+    background-color: var(--kino-terracotta);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--kino-terracotta);
+    animation: burnerPulse 1.4s infinite alternate;
+}
+
+@keyframes burnerPulse {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    100% { transform: scale(1.3); opacity: 1; }
+}
+
+.stage-controls-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.audio-toggle-btn {
+    background: #ffffff;
+    border: 1px solid var(--kino-border);
+    color: var(--kino-green-dark);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    transition: all 0.15s ease;
+}
+
+.audio-toggle-btn:hover {
+    background: var(--kino-green-light);
+}
+
+.audio-toggle-btn.muted {
+    opacity: 0.6;
+}
+
+/* 3D WebGL Canvas Container */
+.three-canvas-container {
+    width: 100%;
+    height: 480px;
+    max-width: 1040px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(235, 228, 213, 0.4) 100%);
+    border: 1px solid rgba(222, 216, 203, 0.6);
+    overflow: hidden;
+    cursor: grab;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.three-canvas-container:active {
+    cursor: grabbing;
+}
+
+/* On-Canvas Interaction Hints */
+.canvas-hint-overlay {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    pointer-events: none;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(6px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--kino-green-dark);
+    border: 1px solid var(--kino-border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Master Control Deck */
+.pan-control-deck {
+    max-width: 1040px;
+    margin: 22px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.main-action-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.chef-toss-btn {
+    background-color: var(--kino-green);
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 21px;
+    padding: 14px 34px;
+    border-radius: 36px;
+    border: 2px solid var(--kino-green-dark);
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(45, 90, 67, 0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.5px;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.chef-toss-btn:hover {
+    background-color: var(--kino-green-dark);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 24px rgba(45, 90, 67, 0.45);
+}
+
+.chef-toss-btn:active {
+    transform: translateY(1px);
+}
+
+.chef-toss-btn.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.reset-pan-btn {
+    background: #ffffff;
+    color: var(--kino-green-dark);
+    font-family: var(--font-display);
+    font-size: 18px;
+    padding: 14px 26px;
+    border-radius: 36px;
+    border: 2px solid var(--kino-border-dark);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.reset-pan-btn:hover {
+    background: var(--kino-sand);
+    border-color: var(--kino-green);
+}
+
+.reset-pan-btn.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* Single Ingredient Quick Toss Pills */
+.single-toss-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pills-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--kino-muted);
+}
+
+.toss-single-btn {
+    background: #ffffff;
+    border: 1px solid var(--kino-border-dark);
+    color: var(--kino-green-dark);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.toss-single-btn:hover {
+    background: var(--kino-green-light);
+    border-color: var(--kino-green);
+}
+
+.toss-single-btn.active {
+    background: var(--kino-terracotta);
+    color: #ffffff;
+    border-color: var(--kino-terracotta);
+    font-weight: 700;
+}
+
+/* Floating HUD Notification Message */
+.pan-hud-alert {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--kino-green-dark);
+    color: #ffffff;
+    font-family: var(--font-display);
+    padding: 10px 24px;
+    border-radius: 24px;
+    font-size: 16px;
+    border: 2px solid var(--kino-mustard);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.pan-hud-alert.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Flying Ingredient Title Tag that travels from Pan down to Page */
+.flying-ingredient-tag {
+    position: absolute;
+    pointer-events: none;
+    z-index: 30;
+    background: var(--kino-green);
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 16px;
+    padding: 8px 18px;
+    border-radius: 24px;
+    border: 2px solid var(--kino-mustard);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+}
+
+.flying-ingredient-tag .tag-arrow {
+    color: var(--kino-mustard);
+    font-size: 16px;
+    font-weight: 900;
+}
+
+/* ==========================================================================
+   THE TOSSED INGREDIENTS SECTION (CAFE KINO PREP COUNTER)
+   ========================================================================== */
+
+.prep-board-section {
+    padding: 56px 20px;
+    background-color: var(--kino-cream);
+    border-bottom: 2px solid var(--kino-border);
+}
+
+.prep-board-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.section-editorial-header {
+    margin-bottom: 32px;
+    border-bottom: 2px solid var(--kino-green);
+    padding-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.section-editorial-title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    color: var(--kino-green-dark);
+    line-height: 1.15;
+}
+
+.section-editorial-sub {
+    font-size: 16px;
+    color: var(--kino-muted);
+    margin-top: 4px;
+}
+
+.board-action-prompt {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--kino-terracotta);
+    background: var(--kino-terracotta-light);
+    padding: 6px 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(200, 90, 50, 0.2);
+}
+
+/* Ingredients Grid */
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 24px;
+}
+
+.editorial-ingredient-card {
+    background: #ffffff;
+    border: 2px solid var(--kino-border);
+    border-radius: 8px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.editorial-ingredient-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: var(--kino-green-mid);
+}
+
+.editorial-ingredient-card.landed {
+    border-color: var(--kino-green);
+    background: linear-gradient(180deg, #ffffff 0%, var(--kino-green-pale) 100%);
+    box-shadow: 0 10px 25px rgba(45, 90, 67, 0.15);
+}
+
+.editorial-ingredient-card.impact-pulse {
+    animation: kinoCardPulse 0.9s ease;
+}
+
+@keyframes kinoCardPulse {
+    0% { box-shadow: 0 0 0 0 rgba(45, 90, 67, 0.6); }
+    70% { box-shadow: 0 0 0 16px rgba(45, 90, 67, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(45, 90, 67, 0); }
+}
+
+.card-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card-index {
+    font-family: var(--font-display);
+    font-size: 24px;
+    color: var(--kino-muted);
+}
+
+.status-pill {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 5px 12px;
+    border-radius: 14px;
+}
+
+.status-pill.in-pan {
+    background: var(--kino-mustard-light);
+    color: #925c0e;
+    border: 1px solid #f6dbab;
+}
+
+.status-pill.landed {
+    background: var(--kino-green-light);
+    color: var(--kino-green-dark);
+    border: 1px solid #b5d8c3;
+}
+
+.card-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--kino-terracotta);
+    margin-bottom: 6px;
+}
+
+.card-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--kino-green-dark);
+    margin-bottom: 6px;
+}
+
+.card-amount {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--kino-charcoal);
+    margin-bottom: 12px;
+}
+
+.card-desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: #484e52;
+    margin-bottom: 16px;
+}
+
+.chef-tip-box {
+    background: var(--kino-sand);
+    border-left: 3px solid var(--kino-green);
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #333638;
+    margin-bottom: 18px;
+    border-radius: 4px;
+}
+
+.chef-tip-box strong {
+    color: var(--kino-green-dark);
+    display: block;
+    margin-bottom: 2px;
+    font-family: var(--font-sans);
+    font-weight: 700;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--kino-border);
+    padding-top: 14px;
+    margin-top: auto;
+}
+
+.prep-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--kino-muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+.prep-checkbox-label input {
+    accent-color: var(--kino-green);
+    width: 17px;
+    height: 17px;
+}
+
+.editorial-ingredient-card.checked .prep-checkbox-label {
+    color: var(--kino-green-dark);
+}
+
+.card-toss-btn {
+    background: #ffffff;
+    border: 1px solid var(--kino-border-dark);
+    color: var(--kino-green-dark);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.card-toss-btn:hover {
+    background: var(--kino-green-light);
+    border-color: var(--kino-green);
+}
+
+/* ==========================================================================
+   CAFE KINO COMMUNITY RECIPE STORY & METHOD
+   ========================================================================== */
+
+.editorial-content-section {
+    padding: 56px 20px 72px;
+    background-color: var(--kino-paper);
+}
+
+.editorial-layout-grid {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+}
+
+/* Left Article Column */
+.article-main-column {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.lead-paragraph {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--kino-charcoal);
+    font-weight: 400;
+}
+
+.editorial-paragraph {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #383c40;
+}
+
+.editorial-pullquote {
+    margin: 24px 0;
+    padding: 20px 24px;
+    border-left: 5px solid var(--kino-mustard);
+    background: #ffffff;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.editorial-pullquote p {
+    font-family: var(--font-display);
+    font-size: 24px;
+    line-height: 1.35;
+    color: var(--kino-green-dark);
+}
+
+.editorial-pullquote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--kino-muted);
+}
+
+.method-section-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--kino-green-dark);
+    margin-top: 16px;
+    border-top: 2px solid var(--kino-green);
+    padding-top: 22px;
+}
+
+.method-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.method-step {
+    display: flex;
+    gap: 18px;
+    background: #ffffff;
+    border: 1px solid var(--kino-border);
+    padding: 22px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.step-number {
+    font-family: var(--font-display);
+    font-size: 30px;
+    color: var(--kino-green);
+    line-height: 1;
+    min-width: 38px;
+}
+
+.step-content h4 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--kino-green-dark);
+    margin-bottom: 6px;
+}
+
+.step-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #404549;
+}
+
+.step-timer-wrapper {
+    margin-top: 12px;
+}
+
+.step-timer-btn {
+    background: var(--kino-green-light);
+    border: 1px solid var(--kino-green);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--kino-green-dark);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.step-timer-btn:hover {
+    background: #d4ebd9;
+}
+
+.step-timer-btn.running {
+    background: var(--kino-mustard);
+    border-color: #b87b22;
+    color: #ffffff;
+    animation: timerPulse 1s infinite alternate;
+}
+
+@keyframes timerPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.02); }
+}
+
+/* Right Sidebar Column */
+.article-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sidebar-card {
+    background: #ffffff;
+    border: 1px solid var(--kino-border);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.sidebar-card.highlight {
+    background: var(--kino-green-pale);
+    border-left: 4px solid var(--kino-green);
+}
+
+.sidebar-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--kino-green-dark);
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--kino-border);
+    padding-bottom: 8px;
+}
+
+.golden-rules-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.golden-rules-list li {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #383c40;
+    display: flex;
+    gap: 10px;
+}
+
+.golden-rules-list li strong {
+    color: var(--kino-green-dark);
+}
+
+.rule-bullet {
+    color: var(--kino-terracotta);
+    font-weight: 900;
+}
+
+.sidebar-info-box p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #484e52;
+}
+
+.newsletter-box {
+    background: var(--kino-green-dark);
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.newsletter-box h3 {
+    font-family: var(--font-display);
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.newsletter-box p {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.newsletter-input {
+    padding: 10px 14px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    font-family: var(--font-sans);
+}
+
+.newsletter-submit {
+    background: var(--kino-mustard);
+    color: var(--kino-green-dark);
+    border: none;
+    font-family: var(--font-display);
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.newsletter-submit:hover {
+    background: #e6ab4a;
+}
+
+/* ==========================================================================
+   CAFE KINO FOOTER (STOKES CROFT, BRISTOL)
+   ========================================================================== */
+
+.kino-footer {
+    background-color: var(--kino-green-dark);
+    color: #ffffff;
+    padding: 56px 20px 48px;
+    border-top: 3px solid var(--kino-mustard);
+}
+
+.footer-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.footer-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-brand {
+    font-family: var(--font-display);
+    font-size: 34px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-back-to-top {
+    color: var(--kino-mustard);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-back-to-top:hover {
+    text-decoration: underline;
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.footer-col h5 {
+    color: var(--kino-mustard);
+    font-family: var(--font-display);
+    font-size: 18px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-col a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.15s;
+}
+
+.footer-col a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.footer-col p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-copyright {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 24px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .editorial-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .recipe-title {
+        font-size: 34px;
+    }
+
+    .kino-brand-title {
+        font-size: 42px;
+    }
+
+    .three-canvas-container {
+        height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .recipe-title {
+        font-size: 28px;
+    }
+
+    .recipe-lead {
+        font-size: 17px;
+    }
+
+    .kino-brand-title {
+        font-size: 34px;
+    }
+
+    .three-canvas-container {
+        height: 340px;
+    }
+
+    .main-action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .chef-toss-btn, .reset-pan-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .ingredients-grid {
+        grid-template-columns: 1fr;
+    }
+}
